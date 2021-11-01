@@ -1,17 +1,33 @@
 <template>
   <div class="home">
     <h1>Media List</h1>
+    <div v-for="media in media" v-bind:key="media.id">
+      <p>{{ media.title }}</p>
+      <p>{{ media.category }}</p>
+    </div>
   </div>
 </template>
 
 <style></style>
 
 <script>
+import axios from "axios";
 export default {
   data: function () {
-    return {};
+    return {
+      media: [],
+    };
   },
-  created: function () {},
-  methods: {},
+  created: function () {
+    this.indexMedia();
+  },
+  methods: {
+    indexMedia: function () {
+      axios.get("/media").then((response) => {
+        console.log("media index", response);
+        this.media = response.data;
+      });
+    },
+  },
 };
 </script>
