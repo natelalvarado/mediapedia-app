@@ -7,6 +7,8 @@ import Logout from "../views/Logout.vue";
 import NewMedia from "../views/NewMedia.vue";
 import ShowMedia from "../views/ShowMedia.vue";
 import EditMedia from "../views/EditMedia.vue";
+import ShowUser from "../views/ShowUser.vue";
+import EditUser from "../views/EditUser.vue";
 
 Vue.use(VueRouter);
 
@@ -40,6 +42,18 @@ const routes = [
     name: "About",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+
+  {
+    path: "/users/me",
+    name: "show-user",
+    component: ShowUser,
+  },
+
+  {
+    path: "/users/me/edit",
+    name: "edit-user",
+    component: EditUser,
   },
 
   {
