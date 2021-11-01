@@ -4,6 +4,7 @@
     <div v-for="media in media" v-bind:key="media.id">
       <p>{{ media.title }}</p>
       <p>{{ media.category }}</p>
+      <router-link :to="`/media/${media.id}`">SHOW INFO</router-link>
     </div>
   </div>
 </template>

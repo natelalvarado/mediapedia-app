@@ -4,6 +4,8 @@ import Home from "../views/Home.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import NewMedia from "../views/NewMedia.vue";
+import ShowMedia from "../views/ShowMedia.vue";
 
 Vue.use(VueRouter);
 
@@ -13,6 +15,19 @@ const routes = [
     name: "Home",
     component: Home,
   },
+
+  {
+    path: "/new",
+    name: "new-media",
+    component: NewMedia,
+  },
+
+  {
+    path: "/media/:id",
+    name: "show-media",
+    component: ShowMedia,
+  },
+
   {
     path: "/about",
     name: "About",
