@@ -10,6 +10,7 @@
     <p>Review: {{ media.review }}</p>
     <p>Cast: {{ media.cast }}</p>
     <p>Plot: {{ media.plot }}</p>
+    <router-link :to="`/media/${media.id}/edit`">Edit</router-link>
   </div>
 </template>
 

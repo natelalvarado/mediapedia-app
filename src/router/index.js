@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import NewMedia from "../views/NewMedia.vue";
 import ShowMedia from "../views/ShowMedia.vue";
+import EditMedia from "../views/EditMedia.vue";
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,12 @@ const routes = [
     path: "/media/:id",
     name: "show-media",
     component: ShowMedia,
+  },
+
+  {
+    path: "/media/:id/edit",
+    name: "edit-media",
+    component: EditMedia,
   },
 
   {
