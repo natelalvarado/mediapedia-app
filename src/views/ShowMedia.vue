@@ -10,7 +10,9 @@
     <p>Review: {{ media.review }}</p>
     <p>Cast: {{ media.cast }}</p>
     <p>Plot: {{ media.plot }}</p>
-    <router-link :to="`/media/${media.id}/edit`">Edit</router-link>
+    <router-link :to="`/media/${media.id}/edit`">Update</router-link>
+    <br />
+    <button v-on:click="destroyMedium()">Delete</button>
   </div>
 </template>
 
@@ -30,6 +32,16 @@ export default {
       this.media = response.data;
     });
   },
-  methods: {},
+  methods: {
+    destroyMedium: function () {
+      if (confirm("Are you sure")) {
+        axios.delete(`/media/${this.media.id}`).then((response) => {
+          console.log(response.data);
+          this.$parent.flashMessage = "Entry Deleted";
+          this.$router.push("/media");
+        });
+      }
+    },
+  },
 };
 </script>
