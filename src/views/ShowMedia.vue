@@ -1,8 +1,8 @@
 <template>
   <div class="show-media">
+    <img :src="media.image" alt="" width="500" height="500" />
     <h1>{{ media.title }}</h1>
     <p>status: {{ media.status }}</p>
-    <p>{{ media.image }}</p>
     <p>creator: {{ media.creator }}</p>
     <p>genre: {{ media.genre }}</p>
     <p>release date: {{ media.year }}</p>
