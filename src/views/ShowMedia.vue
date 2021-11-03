@@ -2,6 +2,7 @@
   <div class="show-media">
     <img :src="media.image" alt="" width="500" height="500" />
     <h1>{{ media.title }}</h1>
+    <p>category: {{ media.category }}</p>
     <p>status: {{ media.status }}</p>
     <p>creator: {{ media.creator }}</p>
     <p>genre: {{ media.genre }}</p>
@@ -38,7 +39,7 @@ export default {
         axios.delete(`/media/${this.media.id}`).then((response) => {
           console.log(response.data);
           this.$parent.flashMessage = "Entry Deleted";
-          this.$router.push("/media");
+          this.$router.push("/");
         });
       }
     },

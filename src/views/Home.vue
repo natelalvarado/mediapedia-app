@@ -19,8 +19,11 @@
       <br />
       <img :src="medium.image" alt="" width="250" height="250" />
       <p>{{ medium.title }}</p>
-      <p>{{ medium.category }}</p>
-      <router-link :to="`/media/${media.id}`">SHOW INFO</router-link>
+      <p>Status: {{ medium.status }}</p>
+      <p>Category: {{ medium.category }}</p>
+      <p>Rating: <br />{{ medium.rating }}</p>
+      <p>Review: {{ medium.review }}</p>
+      <router-link :to="`/media/${medium.id}`">SHOW INFO</router-link>
     </div>
   </div>
 </template>
@@ -49,14 +52,6 @@ export default {
         console.log("media index", response);
         this.media = response.data;
       });
-    },
-    setSortAttribute: function (attribute) {
-      if (this.sortAttribute === attribute) {
-        this.sortOrder = this.sortOrder * -1;
-      } else {
-        this.sortAttribute = attribute;
-        this.sortOrder = 1;
-      }
     },
     setFilter: function (filter) {
       this.filter = filter;

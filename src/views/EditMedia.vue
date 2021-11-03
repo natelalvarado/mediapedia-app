@@ -3,8 +3,15 @@
     <h1>Update Media Entry</h1>
     <form v-on:submit.prevent="editMedia()">
       <div>
-        Category:
-        <input type="text" v-model="editMediaParams.category" />
+        <span>Category:</span>
+        <select v-model="editMediaParams.category">
+          <option disabled value="">Please select one</option>
+          <option>Movie</option>
+          <option>Television</option>
+          <option>Video Game</option>
+          <option>Book</option>
+          <option>Music</option>
+        </select>
       </div>
       <div>
         Title:
@@ -27,16 +34,36 @@
         <input type="text" v-model="editMediaParams.image" />
       </div>
       <div>
-        Rating:
-        <input type="text" v-model="editMediaParams.rating" />
+        <span>Rating:</span>
+        <select v-model="editMediaParams.rating">
+          <option disabled value="">Please select one</option>
+          <option>A+</option>
+          <option>A</option>
+          <option>A-</option>
+          <option>B+</option>
+          <option>B</option>
+          <option>B-</option>
+          <option>C+</option>
+          <option>C</option>
+          <option>C-</option>
+          <option>D+</option>
+          <option>D</option>
+          <option>D-</option>
+          <option>F</option>
+        </select>
       </div>
       <div>
         Review:
         <input type="text" v-model="editMediaParams.review" />
       </div>
       <div>
-        Status:
-        <input type="text" v-model="editMediaParams.status" />
+        <span>Status:</span>
+        <select v-model="editMediaParams.status">
+          <option disabled value="">Please select one</option>
+          <option>Complete</option>
+          <option>Incomplete</option>
+          <option>Not Started</option>
+        </select>
       </div>
       <div>
         Cast:
