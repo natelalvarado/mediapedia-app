@@ -18,7 +18,7 @@
         <input type="text" v-model="editMediaParams.title" />
       </div>
       <div>
-        Creator:
+        {{ creatorDisplay(editMediaParams) }}:
         <input type="text" v-model="editMediaParams.creator" />
       </div>
       <div>
@@ -60,16 +60,16 @@
         <span>Status:</span>
         <select v-model="editMediaParams.status">
           <option disabled value="">Please select one</option>
-          <option>Complete</option>
-          <option>Incomplete</option>
+          <option>Completed</option>
+          <option>In Progress</option>
           <option>Not Started</option>
         </select>
       </div>
-      <div>
+      <div v-if="filterCast(editMediaParams)">
         Cast:
         <input type="text" v-model="editMediaParams.cast" />
       </div>
-      <div>
+      <div v-if="filterPlot(editMediaParams)">
         Plot:
         <input type="text" v-model="editMediaParams.plot" />
       </div>
@@ -108,6 +108,32 @@ export default {
         .catch((error) => {
           console.log(error.response.data.errors);
         });
+    },
+    filterPlot: function (editMediaParams) {
+      return (
+        editMediaParams.category === "Movie" ||
+        editMediaParams.category === "Television" ||
+        editMediaParams.category === "Book"
+      );
+    },
+    filterCast: function (editMediaParams) {
+      return (
+        editMediaParams.category === "Movie" ||
+        editMediaParams.category === "Television"
+      );
+    },
+    creatorDisplay: function (editMediaParams) {
+      if (editMediaParams.category === "Movie") {
+        return "Director";
+      } else if (editMediaParams.category === "Music") {
+        return "Artist";
+      } else if (editMediaParams.category === "Book") {
+        return "Author";
+      } else if (editMediaParams.category === "Video Game") {
+        return "Studio";
+      } else {
+        return "Creator";
+      }
     },
   },
 };

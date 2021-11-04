@@ -5,7 +5,7 @@
       <span v-if="isLoggedIn()">
         <router-link to="/new">New Media</router-link> |
         <router-link to="/users/me">My Account</router-link> |
-        <router-link to="/logout">Logout</router-link>|
+        <router-link to="/logout">Logout</router-link>
       </span>
       <span v-if="!isLoggedIn()">
         <router-link to="/login">Login</router-link> |

@@ -8,8 +8,8 @@
     <button v-on:click="setFilter('Video Game')">Video Game</button>
     <button v-on:click="setFilter('Music')">Music</button> <br />
     <h3>Filter by Status</h3>
-    <button v-on:click="setFilter('Complete')">Complete</button>
-    <button v-on:click="setFilter('Incomplete')">Incomplete</button>
+    <button v-on:click="setFilter('Completed')">Completed</button>
+    <button v-on:click="setFilter('In Progress')">In Progress</button>
     <button v-on:click="setFilter('Not Started')">Not Started</button>
     <h1>Media List</h1>
     <div
