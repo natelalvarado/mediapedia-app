@@ -76,7 +76,7 @@
                 <div class="col-md-12 text-center margin-25px-top">
                   <span
                     >Don't have an account yet?
-                    <a href="/signup">Register</a></span
+                    <a href="/signup">Signup</a></span
                   >
                 </div>
               </form>

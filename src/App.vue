@@ -45,7 +45,9 @@
                         <a v-if="isLoggedIn()">Account Settings</a>
                         <ul>
                           <li><a href="/logout">Logout</a></li>
-                          <li><a href="/users/me">My Profile</a></li>
+                          <li>
+                            <a href="/users/me">My Profile</a>
+                          </li>
                         </ul>
                       </li>
                       <li v-if="!isLoggedIn()">
