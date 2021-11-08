@@ -10,110 +10,47 @@
           </div>
           <div class="col-lg-6 order-1 order-lg-2 sm-margin-30px-bottom">
             <div class="padding-40px-left padding-40px-top sm-no-padding">
-              <form v-on:submit.prevent="editMedia()">
-                <div class="form-group col-md-6">
-                  <h7>Category</h7>
-                  <select :value="media.category">
-                    <option disabled value="">Please select one</option>
-                    <option value="Movie">Movie</option>
-                    <option value="Television">Television</option>
-                    <option value="Video Game">Video Game</option>
-                    <option value="Book">Book</option>
-                    <option value="Music">Music</option>
-                  </select>
-                </div>
-                <div
-                  class="form-group col-md-6"
-                  v-on:submit.prevent="editMedia()"
-                >
-                  <h7>Status</h7>
-                  <select>
-                    <option disabled value="">Please select one</option>
-                    <option>Completed</option>
-                    <option>In Progress</option>
-                    <option>Not Started</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                  <h7> {{ creatorDisplay(media) }}</h7>
-                  <input
-                    type="text"
-                    class="form-control no-margin-bottom padding-10px-tb"
-                    name="exampleInputName"
-                    id="exampleInputName"
-                    :value="media.creator"
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <h7>Title</h7>
-                  <input
-                    type="text"
-                    class="form-control no-margin-bottom padding-10px-tb"
-                    name="exampleInputName"
-                    id="exampleInputName"
-                    :value="media.title"
-                  />
-                </div>
-                <div class="form-group col-md-12">
-                  <h7>Genre</h7>
-                  <input
-                    type="text"
-                    class="form-control no-margin-bottom padding-10px-tb"
-                    name="exampleInputTitle"
-                    id="exampleInputTitle"
-                    :value="media.genre"
-                  />
-                </div>
-                <div class="form-group col-md-12" v-if="filterPlot(media)">
-                  <h7>Plot</h7>
-                  <textarea
-                    type="text"
-                    class="form-control no-margin-bottom padding-10px-tb"
-                    name="exampleInputTitle"
-                    id="exampleInputTitle"
-                    :value="media.plot"
-                  ></textarea>
-                </div>
-                <div class="form-group col-md-12" v-if="filterCast(media)">
-                  <h7>Cast</h7>
-                  <input
-                    type="text"
-                    class="form-control no-margin-bottom padding-10px-tb"
-                    name="exampleInputTitle"
-                    id="exampleInputTitle"
-                    :value="media.cast"
-                  />
-                </div>
-                <div class="form-group col-md-12">
-                  <h7>Release Date</h7>
-                  <input
-                    type="text"
-                    class="form-control no-margin-bottom padding-10px-tb"
-                    name="exampleInputTitle"
-                    id="exampleInputTitle"
-                    :value="media.year"
-                  />
-                </div>
-                <div class="form-group col-md-12">
-                  <h7>Rating</h7>
-                  <select>
-                    <option disabled value="">Please select one</option>
-                    <option>A+</option>
-                    <option>A</option>
-                    <option>A-</option>
-                    <option>B+</option>
-                    <option>B</option>
-                    <option>B-</option>
-                    <option>C+</option>
-                    <option>C</option>
-                    <option>C-</option>
-                    <option>D+</option>
-                    <option>D</option>
-                    <option>D-</option>
-                    <option>F</option>
-                  </select>
-                </div>
-              </form>
+              <div class="form-group col-md-6">
+                <h6>Title</h6>
+                <p>{{ media.title }}</p>
+              </div>
+              <div class="form-group col-md-6">
+                <h6>Category</h6>
+                <p>{{ media.category }}</p>
+              </div>
+              <div class="form-group col-md-6">
+                <h6>Status</h6>
+                <p>{{ media.status }}</p>
+              </div>
+              <div class="form-group col-md-6">
+                <h6>{{ creatorDisplay(media) }}</h6>
+                <p>{{ media.creator }}</p>
+              </div>
+
+              <div class="form-group col-md-12">
+                <h6>Genre</h6>
+                <p>{{ media.genre }}</p>
+              </div>
+              <div class="form-group col-md-12" v-if="filterPlot(media)">
+                <h6>Plot</h6>
+                <p>{{ media.plot }}</p>
+              </div>
+              <div class="form-group col-md-12" v-if="filterCast(media)">
+                <h6>Cast</h6>
+                <p>{{ media.cast }}</p>
+              </div>
+              <div class="form-group col-md-12">
+                <h6>Release Date</h6>
+                <p>{{ media.year }}</p>
+              </div>
+              <div class="form-group col-md-12">
+                <h6>Rating</h6>
+                <p>{{ media.rating }}</p>
+              </div>
+              <div class="form-group col-md-12">
+                <h6>Review</h6>
+                <p>{{ media.review }}</p>
+              </div>
               <div class="col-md-12">
                 <button
                   type="submit"
@@ -132,7 +69,7 @@
       </div>
     </section>
 
-    <!-- <img :src="media.image" alt="" width="500" height="500" /> -->
+    <img :src="media.image" alt="" width="500" height="500" />
     <h1>{{ media.title }}</h1>
     <p>Category: {{ media.category }}</p>
     <p>Status: {{ media.status }}</p>
@@ -159,7 +96,6 @@ export default {
     return {
       media: {},
       createrTitle: "",
-      editMediaParams: {},
     };
   },
   created: function () {
@@ -200,17 +136,6 @@ export default {
       } else {
         return "Creator";
       }
-    },
-    editMedia: function () {
-      axios
-        .patch(`/media/${this.editMediaParams.id}`, this.editMediaParams)
-        .then((response) => {
-          console.log(response.data);
-          this.$router.go(`/media/${response.data.id}`);
-        })
-        .catch((error) => {
-          console.log(error.response.data.errors);
-        });
     },
   },
 };

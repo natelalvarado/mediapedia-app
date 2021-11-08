@@ -41,15 +41,10 @@
                       id="nav"
                       style="display: none"
                     >
-                      <li>
-                        <a v-if="isLoggedIn()">Account Settings</a>
-                        <ul>
-                          <li><a href="/logout">Logout</a></li>
-                          <li>
-                            <a href="/users/me">My Profile</a>
-                          </li>
-                        </ul>
+                      <li v-if="isLoggedIn()">
+                        <a href="/users/me">My Profile</a>
                       </li>
+                      <li v-if="isLoggedIn()"><a href="/logout">Logout</a></li>
                       <li v-if="!isLoggedIn()">
                         <a href="/login">Login</a>
                       </li>

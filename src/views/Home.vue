@@ -11,10 +11,8 @@
                 id="exampleFormControlSelect1"
               >
                 <option selected>Default</option>
-                <option value="3">Name Ascending</option>
-                <option value="4">Name Descending</option>
-                <option value="1">Score Ascending</option>
-                <option value="2">Score Descending</option>
+                <option value="1">Name Ascending</option>
+                <option value="2">Name Descending</option>
               </select>
             </div>
           </div>
