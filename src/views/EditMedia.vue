@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-6 order-2 order-lg-1">
             <div class="padding-15px-all shadow bg-white">
-              <img :src="media.image" width="500" height="500" />
+              <img :src="editMediaParams.image" width="500" height="500" />
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 sm-margin-30px-bottom">
@@ -13,7 +13,10 @@
               <form v-on:submit.prevent="editMedia()">
                 <div class="form-group col-md-6">
                   <h7>Category</h7>
-                  <select :value="media.category">
+                  <select
+                    :value="editMediaParams.category"
+                    v-model="editMediaParams.category"
+                  >
                     <option disabled value="">Please select one</option>
                     <option value="Movie">Movie</option>
                     <option value="Television">Television</option>
@@ -22,12 +25,9 @@
                     <option value="Music">Music</option>
                   </select>
                 </div>
-                <div
-                  class="form-group col-md-6"
-                  v-on:submit.prevent="editMedia()"
-                >
+                <div class="form-group col-md-6">
                   <h7>Status</h7>
-                  <select>
+                  <select v-model="editMediaParams.status">
                     <option disabled value="">Please select one</option>
                     <option>Completed</option>
                     <option>In Progress</option>
@@ -35,13 +35,13 @@
                   </select>
                 </div>
                 <div class="form-group col-md-6">
-                  <h7> {{ creatorDisplay(media) }}</h7>
+                  <h7> {{ creatorDisplay(editMediaParams) }}</h7>
                   <input
                     type="text"
                     class="form-control no-margin-bottom padding-10px-tb"
                     name="exampleInputName"
                     id="exampleInputName"
-                    :value="media.creator"
+                    v-model="editMediaParams.creator"
                   />
                 </div>
                 <div class="form-group col-md-6">
@@ -51,7 +51,7 @@
                     class="form-control no-margin-bottom padding-10px-tb"
                     name="exampleInputName"
                     id="exampleInputName"
-                    :value="media.title"
+                    v-model="editMediaParams.title"
                   />
                 </div>
                 <div class="form-group col-md-12">
@@ -61,27 +61,33 @@
                     class="form-control no-margin-bottom padding-10px-tb"
                     name="exampleInputTitle"
                     id="exampleInputTitle"
-                    :value="media.genre"
+                    v-model="editMediaParams.genre"
                   />
                 </div>
-                <div class="form-group col-md-12" v-if="filterPlot(media)">
+                <div
+                  class="form-group col-md-12"
+                  v-if="filterPlot(editMediaParams)"
+                >
                   <h7>Plot</h7>
                   <textarea
                     type="text"
                     class="form-control no-margin-bottom padding-10px-tb"
                     name="exampleInputTitle"
                     id="exampleInputTitle"
-                    :value="media.plot"
+                    v-model="editMediaParams.plot"
                   ></textarea>
                 </div>
-                <div class="form-group col-md-12" v-if="filterCast(media)">
+                <div
+                  class="form-group col-md-12"
+                  v-if="filterCast(editMediaParams)"
+                >
                   <h7>Cast</h7>
                   <input
                     type="text"
                     class="form-control no-margin-bottom padding-10px-tb"
                     name="exampleInputTitle"
                     id="exampleInputTitle"
-                    :value="media.cast"
+                    v-model="editMediaParams.cast"
                   />
                 </div>
                 <div class="form-group col-md-12">
@@ -91,12 +97,12 @@
                     class="form-control no-margin-bottom padding-10px-tb"
                     name="exampleInputTitle"
                     id="exampleInputTitle"
-                    :value="media.year"
+                    v-model="editMediaParams.year"
                   />
                 </div>
                 <div class="form-group col-md-12">
                   <h7>Rating</h7>
-                  <select>
+                  <select v-model="editMediaParams.rating">
                     <option disabled value="">Please select one</option>
                     <option>A+</option>
                     <option>A</option>
@@ -113,19 +119,10 @@
                     <option>F</option>
                   </select>
                 </div>
+                <div class="col-md-12">
+                  <input type="submit" value="Save" />
+                </div>
               </form>
-              <div class="col-md-12">
-                <button
-                  type="submit"
-                  class="butn"
-                  v-on:click.prevent="editMedia()"
-                >
-                  <span>Update Media</span>
-                </button>
-                <button type="submit" class="butn" v-on:click="destroyMedium()">
-                  <span>Delete Media</span>
-                </button>
-              </div>
             </div>
           </div>
         </div>

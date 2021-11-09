@@ -52,13 +52,14 @@
                 <p>{{ media.review }}</p>
               </div>
               <div class="col-md-12">
-                <button
+                <router-link
                   type="submit"
                   class="butn"
-                  v-on:click.prevent="editMedia()"
+                  router-link
+                  :to="`/media/${media.id}/edit`"
                 >
                   <span>Update Media</span>
-                </button>
+                </router-link>
                 <button type="submit" class="butn" v-on:click="destroyMedium()">
                   <span>Delete Media</span>
                 </button>

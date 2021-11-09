@@ -1,5 +1,50 @@
 <template>
-  <div class="new-media">
+  <div class="new-media main-wrapper">
+    <div class="container margin-30px-top margin-30px-bottom">
+      <div class="row">
+        <div class="col-md-9 form-list center-col">
+          <div class="post">
+            <img src="img/blog/blog-7.jpg" alt="" class="rounded" />
+          </div>
+          <div class="container margin-30px-top">
+            <div class="col-md-6 form-list center-col">
+              <h6>Title</h6>
+              <input
+                type="text"
+                class="form-control no-margin-bottom padding-10px-tb"
+                name="exampleInputName"
+                id="exampleInputName"
+                placeholder="Your Name"
+              />
+            </div>
+            <div
+              class="col-md-6 form-list center-col container margin-30px-top"
+            >
+              <input
+                type="text"
+                class="form-control no-margin-bottom padding-10px-tb"
+                name="exampleInputName"
+                id="exampleInputName"
+                placeholder="Your Name"
+              />
+            </div>
+            <div class="form-group col-md-12 container margin-30px-top">
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="5"
+                placeholder="Message"
+              ></textarea>
+            </div>
+            <div class="col-md-12">
+              <button type="submit" class="butn">
+                <span>submit message</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <h1>New Media</h1>
     <div>
       <form v-on:submit.prevent="createMedia()">
