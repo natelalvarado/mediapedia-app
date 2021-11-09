@@ -2,46 +2,172 @@
   <div class="new-media main-wrapper">
     <div class="container margin-30px-top margin-30px-bottom">
       <div class="row">
-        <div class="col-md-9 form-list center-col">
-          <div class="post">
-            <img src="img/blog/blog-7.jpg" alt="" class="rounded" />
-          </div>
-          <div class="container margin-30px-top">
-            <div class="col-md-6 form-list center-col">
-              <h6>Title</h6>
-              <input
-                type="text"
-                class="form-control no-margin-bottom padding-10px-tb"
-                name="exampleInputName"
-                id="exampleInputName"
-                placeholder="Your Name"
-              />
-            </div>
-            <div
-              class="col-md-6 form-list center-col container margin-30px-top"
-            >
-              <input
-                type="text"
-                class="form-control no-margin-bottom padding-10px-tb"
-                name="exampleInputName"
-                id="exampleInputName"
-                placeholder="Your Name"
-              />
-            </div>
-            <div class="form-group col-md-12 container margin-30px-top">
-              <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="5"
-                placeholder="Message"
-              ></textarea>
-            </div>
-            <div class="col-md-12">
-              <button type="submit" class="butn">
-                <span>submit message</span>
-              </button>
+        <div class="col-md-9 form-list center-col container margin-30px-top">
+          <div class="col-md-6 form-list center-col">
+            <div class="padding-15px-all shadow bg-white">
+              <img :src="newMediaParams.image" width="500" height="500" />
             </div>
           </div>
+          <form v-on:submit.prevent="createMedia()">
+            <div class="container margin-30px-top">
+              <div class="col-md-6 form-list center-col row">
+                <h6>Category</h6>
+                <select v-model="newMediaParams.category">
+                  <option disabled value="">Please select one</option>
+                  <option>Movie</option>
+                  <option>Television</option>
+                  <option>Video Game</option>
+                  <option>Book</option>
+                  <option>Music</option>
+                </select>
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6>Status</h6>
+                <select v-model="newMediaParams.status">
+                  <option disabled value="">Please select one</option>
+                  <option>Completed</option>
+                  <option>In Progress</option>
+                  <option>Not Started</option>
+                </select>
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6>Title</h6>
+                <input
+                  type="text"
+                  class="form-control no-margin-bottom padding-10px-tb"
+                  name="exampleInputName"
+                  id="exampleInputName"
+                  placeholder="Title"
+                  v-model="newMediaParams.title"
+                />
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6>{{ creatorDisplay(newMediaParams) }}</h6>
+                <input
+                  type="text"
+                  class="form-control no-margin-bottom padding-10px-tb"
+                  name="exampleInputName"
+                  id="exampleInputName"
+                  placeholder="Title"
+                  v-model="newMediaParams.creator"
+                />
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6>Genre</h6>
+                <input
+                  type="text"
+                  class="form-control no-margin-bottom padding-10px-tb"
+                  name="exampleInputName"
+                  id="exampleInputName"
+                  placeholder="Your Name"
+                  v-model="newMediaParams.genre"
+                />
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6>Release Year</h6>
+                <input
+                  type="text"
+                  class="form-control no-margin-bottom padding-10px-tb"
+                  name="exampleInputName"
+                  id="exampleInputName"
+                  placeholder="Your Name"
+                  v-model="newMediaParams.year"
+                />
+              </div>
+
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6 v-if="filterPlot(newMediaParams)">Plot</h6>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="5"
+                  placeholder="Enter Plot Summary"
+                  v-model="newMediaParams.plot"
+                  v-if="filterPlot(newMediaParams)"
+                ></textarea>
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6 v-if="filterCast(newMediaParams)">Cast</h6>
+                <input
+                  type="text"
+                  class="form-control no-margin-bottom padding-10px-tb"
+                  name="exampleInputName"
+                  id="exampleInputName"
+                  placeholder="Your Name"
+                  v-if="filterCast(newMediaParams)"
+                  v-model="newMediaParams.cast"
+                />
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6>Image</h6>
+                <input
+                  type="text"
+                  class="form-control no-margin-bottom padding-10px-tb"
+                  name="exampleInputName"
+                  id="exampleInputName"
+                  placeholder="Your Name"
+                  v-model="newMediaParams.image"
+                />
+              </div>
+              <div
+                class="col-md-6 form-list center-col container margin-30px-top"
+              >
+                <h6>Rating</h6>
+                <select v-model="newMediaParams.rating">
+                  <option disabled value="">Please select one</option>
+                  <option>A+</option>
+                  <option>A</option>
+                  <option>A-</option>
+                  <option>B+</option>
+                  <option>B</option>
+                  <option>B-</option>
+                  <option>C+</option>
+                  <option>C</option>
+                  <option>C-</option>
+                  <option>D+</option>
+                  <option>D</option>
+                  <option>D-</option>
+                  <option>F</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6 container margin-30px-top">
+                <h6>Review</h6>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="5"
+                  placeholder="Message"
+                  v-model="newMediaParams.review"
+                ></textarea>
+              </div>
+              <div class="col-md-6 form-list center-col">
+                <button
+                  type="submit"
+                  class="butn col-md-12 form-list center-col"
+                  value="Create"
+                >
+                  <span>Create New Media</span>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -86,7 +212,7 @@
         <input type="string" v-model="newMediaParams.image" />
         <br />
         <span>Rating:</span>
-        <select v-model="newMediaParams.status">
+        <select v-model="newMediaParams.rating">
           <option disabled value="">Please select one</option>
           <option>A+</option>
           <option>A</option>
