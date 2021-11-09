@@ -171,7 +171,7 @@
         </div>
       </div>
     </div>
-    <h1>New Media</h1>
+    <!-- <h1>New Media</h1>
     <div>
       <form v-on:submit.prevent="createMedia()">
         <span>Category:</span>
@@ -244,7 +244,7 @@
           Create
         </button>
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
 

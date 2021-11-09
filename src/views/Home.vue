@@ -212,7 +212,10 @@
             >
               <div
                 class="card card-list border-0"
-                v-for="medium in filterBy(media, filter, 'category', 'status')"
+                v-for="medium in orderBy(
+                  filterBy(media, filter, 'category', 'status'),
+                  sortAttribute
+                )"
                 v-bind:key="medium.id"
               >
                 <br />
@@ -311,7 +314,7 @@
         </div>
       </div>
     </section>
-    <h3>Filter by category</h3>
+    <!-- <h3>Filter by category</h3>
     <button v-on:click="setFilter('')">All</button>
     <button v-on:click="setFilter('Movie')">Movie</button>
     <button v-on:click="setFilter('Television')">Television</button>
@@ -335,7 +338,7 @@
       <p>Rating: <br />{{ medium.rating }}</p>
       <p>Review: {{ medium.review }}</p>
       <router-link :to="`/media/${medium.id}`">SHOW INFO</router-link>
-    </div>
+    </div> -->
   </div>
 </template>
 

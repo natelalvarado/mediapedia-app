@@ -70,7 +70,7 @@
       </div>
     </section>
 
-    <img :src="media.image" alt="" width="500" height="500" />
+    <!-- <img :src="media.image" alt="" width="500" height="500" />
     <h1>{{ media.title }}</h1>
     <p>Category: {{ media.category }}</p>
     <p>Status: {{ media.status }}</p>
@@ -83,7 +83,7 @@
     <p v-if="filterPlot(media)">Plot: {{ media.plot }}</p>
     <router-link :to="`/media/${media.id}/edit`">Update</router-link>
     <br />
-    <button v-on:click="destroyMedium()">Delete</button>
+    <button v-on:click="destroyMedium()">Delete</button> -->
   </div>
 </template>
 

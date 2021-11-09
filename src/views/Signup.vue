@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <form v-on:submit.prevent="submit()">
+      <!-- <form v-on:submit.prevent="submit()">
         <h1>Signup</h1>
         <ul>
           <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -107,7 +107,7 @@
           />
         </div>
         <input type="submit" value="Submit" />
-      </form>
+      </form> -->
     </div>
   </div>
 </template>

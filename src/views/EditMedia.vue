@@ -128,7 +128,7 @@
         </div>
       </div>
     </section>
-    <h1>Update Media Entry</h1>
+    <!-- <h1>Update Media Entry</h1>
     <form v-on:submit.prevent="editMedia()">
       <div>
         <span>Category:</span>
@@ -204,7 +204,7 @@
       <br />
       <input type="submit" value="Save" />
     </form>
-    editMediaParams: {{ editMediaParams }}
+    editMediaParams: {{ editMediaParams }} -->
   </div>
 </template>
 

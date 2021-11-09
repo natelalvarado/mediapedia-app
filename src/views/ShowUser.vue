@@ -67,12 +67,12 @@
         </div>
       </div>
     </section>
-    <h1>My Account</h1>
+    <!-- <h1>My Account</h1>
     <p>Name: {{ user.name }}</p>
     <p>Email: {{ user.email }}</p>
     <router-link to="/users/me/edit">Update Account</router-link>
     <br />
-    <button v-on:click="destroyUser()">Delete Account</button>
+    <button v-on:click="destroyUser()">Delete Account</button> -->
   </div>
 </template>
 
