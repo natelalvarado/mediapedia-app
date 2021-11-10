@@ -249,7 +249,7 @@
                           </li>
                         </ul>
                       </div>
-                      <span>{{ medium.rating }}</span>
+                      <b>{{ medium.rating }}</b>
                       <br />
                       <span>{{ medium.category }}</span>
                       <p class="margin-20px-tb sm-margin-10px-top">

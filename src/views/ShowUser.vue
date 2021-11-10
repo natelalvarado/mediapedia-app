@@ -2,7 +2,7 @@
   <div class="show-user main-wrapper">
     <!-- start contact form -->
     <section class="bg-light-gray contact-form">
-      <div class="container margin-30px-top">
+      <div class="container margin-30px-top no-margin-right">
         <div class="row">
           <div class="col-md-9 form-list center-col">
             <div class="row">
@@ -57,11 +57,15 @@
                 <button
                   v-on:click.prevent="editUser()"
                   type="submit"
-                  class="butn"
+                  class="butn margin-10px-left"
                 >
                   <span>Update Account</span>
                 </button>
-                <button type="submit" class="butn" v-on:click="destroyUser()">
+                <button
+                  type="submit"
+                  class="butn margin-10px-all"
+                  v-on:click="destroyUser()"
+                >
                   Delete Account
                 </button>
               </div>

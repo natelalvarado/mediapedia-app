@@ -8,12 +8,27 @@
               <img :src="media.image" width="500" height="500" />
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 sm-margin-30px-bottom">
-            <div class="padding-40px-left padding-40px-top sm-no-padding">
+          <div class="col-lg-6 order-1 order-lg-2 sm-margin-10px-bottom">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <h6>Review</h6>
+                <p>{{ media.review }}</p>
+              </div>
+              <div class="form-group col-md-12 margin-10px-bottom">
+                <h6>Rating: {{ media.rating }}</h6>
+              </div>
+            </div>
+            <div class="row">
               <div class="form-group col-md-6">
                 <h6>Title</h6>
                 <p>{{ media.title }}</p>
               </div>
+              <div class="form-group col-md-6">
+                <h6>{{ creatorDisplay(media) }}</h6>
+                <p>{{ media.creator }}</p>
+              </div>
+            </div>
+            <div class="row">
               <div class="form-group col-md-6">
                 <h6>Category</h6>
                 <p>{{ media.category }}</p>
@@ -22,15 +37,18 @@
                 <h6>Status</h6>
                 <p>{{ media.status }}</p>
               </div>
+            </div>
+            <div class="row">
               <div class="form-group col-md-6">
-                <h6>{{ creatorDisplay(media) }}</h6>
-                <p>{{ media.creator }}</p>
-              </div>
-
-              <div class="form-group col-md-12">
                 <h6>Genre</h6>
                 <p>{{ media.genre }}</p>
               </div>
+              <div class="form-group col-md-6">
+                <h6>Release Date</h6>
+                <p>{{ media.year }}</p>
+              </div>
+            </div>
+            <div class="row">
               <div class="form-group col-md-12" v-if="filterPlot(media)">
                 <h6>Plot</h6>
                 <p>{{ media.plot }}</p>
@@ -39,31 +57,24 @@
                 <h6>Cast</h6>
                 <p>{{ media.cast }}</p>
               </div>
-              <div class="form-group col-md-12">
-                <h6>Release Date</h6>
-                <p>{{ media.year }}</p>
-              </div>
-              <div class="form-group col-md-12">
-                <h6>Rating</h6>
-                <p>{{ media.rating }}</p>
-              </div>
-              <div class="form-group col-md-12">
-                <h6>Review</h6>
-                <p>{{ media.review }}</p>
-              </div>
-              <div class="col-md-12">
-                <router-link
-                  type="submit"
-                  class="butn"
-                  router-link
-                  :to="`/media/${media.id}/edit`"
-                >
-                  <span>Update Media</span>
-                </router-link>
-                <button type="submit" class="butn" v-on:click="destroyMedium()">
-                  <span>Delete Media</span>
-                </button>
-              </div>
+            </div>
+
+            <div class="col-md-12">
+              <router-link
+                type="submit"
+                class="butn margin-100px-right margin-50px-bottom"
+                router-link
+                :to="`/media/${media.id}/edit`"
+              >
+                <span>Update Media</span>
+              </router-link>
+              <button
+                type="submit"
+                class="butn margin-80px-left margin-50px-bottom"
+                v-on:click="destroyMedium()"
+              >
+                <span>Delete Media</span>
+              </button>
             </div>
           </div>
         </div>
