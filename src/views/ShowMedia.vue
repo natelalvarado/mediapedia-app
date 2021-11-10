@@ -59,23 +59,28 @@
               </div>
             </div>
 
-            <div class="col-md-12">
-              <router-link
-                type="submit"
-                class="butn margin-100px-right margin-50px-bottom"
-                router-link
-                :to="`/media/${media.id}/edit`"
-              >
-                <span>Update Media</span>
-              </router-link>
-              <button
-                type="submit"
-                class="butn margin-80px-left margin-50px-bottom"
-                v-on:click="destroyMedium()"
-              >
-                <span>Delete Media</span>
-              </button>
-            </div>
+            <router-link
+              class="
+                butn
+                col-md-12
+                form-list
+                center-col
+                margin-50px-bottom
+                text-center
+              "
+              :to="`/media/${media.id}/edit`"
+            >
+              <span>Update Media</span>
+            </router-link>
+            <br />
+
+            <button
+              type="submit"
+              class="butn col-md-12 form-list center-col margin-50px-bottom"
+              v-on:click="destroyMedium()"
+            >
+              <span>Delete Media</span>
+            </button>
           </div>
         </div>
       </div>

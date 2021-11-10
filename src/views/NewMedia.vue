@@ -1,6 +1,6 @@
 <template>
   <div class="new-media main-wrapper">
-    <div class="container margin-30px-top margin-30px-bottom">
+    <div class="container margin-80px-top margin-30px-bottom">
       <div class="row">
         <div class="col-md-9 form-list center-col container margin-30px-top">
           <div class="col-md-6 form-list center-col">

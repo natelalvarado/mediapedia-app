@@ -2,21 +2,6 @@
   <div class="home main-wrapper">
     <section>
       <div class="container">
-        <div class="border-bottom padding-20px-bottom margin-30px-bottom">
-          <div class="row align-items-end">
-            <div class="col-lg-3 col-md-6 sm-margin-20px-bottom">
-              <span class="text-extra-dark-gray font-weight-600">Sort By</span>
-              <select
-                class="form-control no-margin-bottom margin-10px-top"
-                id="exampleFormControlSelect1"
-              >
-                <option selected>Default</option>
-                <option value="1">Name Ascending</option>
-                <option value="2">Name Descending</option>
-              </select>
-            </div>
-          </div>
-        </div>
         <div class="margin-60px-bottom">
           <span class="margin-20px-right font-size18">Filter By</span>
           <div
@@ -213,7 +198,9 @@
               <div
                 class="card card-list border-0"
                 v-for="medium in orderBy(
-                  filterBy(media, filter, 'category', 'status')
+                  filterBy(media, filter, 'title', 'category', 'status'),
+                  'title',
+                  sortAscending
                 )"
                 v-bind:key="medium.id"
               >
@@ -249,7 +236,7 @@
                           </li>
                         </ul>
                       </div>
-                      <b>{{ medium.rating }}</b>
+                      <strong>Rating: {{ medium.rating }}</strong>
                       <br />
                       <span>{{ medium.category }}</span>
                       <p class="margin-20px-tb sm-margin-10px-top">
@@ -299,17 +286,27 @@
           <div class="col-lg-3">
             <div class="side-bar">
               <div class="widget">
-                <div class="widget-title"><h3>Search</h3></div>
-                <form method="post" action="#!">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control padding-10px-tb"
-                      id="exampleFormControlInput4"
-                      placeholder="What are you looking for?"
-                    />
-                  </div>
-                </form>
+                <h3>Search</h3>
+                <input
+                  type="text"
+                  class="form-control padding-10px-tb"
+                  id="exampleFormControlInput4"
+                  placeholder="What are you looking for?"
+                  v-model="filter"
+                />
+              </div>
+              <div class="widget">
+                <div class="widget-title"><h3>Sort By</h3></div>
+                <div class="form-group">
+                  <select
+                    class="form-control no-margin-bottom margin-10px-top"
+                    id="exampleFormControlSelect1"
+                    v-model="sortAscending"
+                  >
+                    <option :value="1">Name Ascending</option>
+                    <option :value="-1">Name Descending</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -357,6 +354,8 @@ export default {
     return {
       media: [],
       filter: "",
+      sortAscending: 1,
+      searchQuery: "",
     };
   },
   created: function () {

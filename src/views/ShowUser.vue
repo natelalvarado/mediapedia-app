@@ -5,6 +5,7 @@
       <div class="container margin-30px-top no-margin-right">
         <div class="row">
           <div class="col-md-9 form-list center-col">
+            <h1 class="margin-50px-top">My Account</h1>
             <div class="row">
               <div class="form-group col-md-6">
                 <h7>Username</h7>

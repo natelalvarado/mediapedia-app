@@ -25,10 +25,10 @@
                         "
                         ><img
                           id="logo"
-                          src="img/logos/mediapedia logo.png"
+                          src="img/logos/mediapedialogo.png"
                           alt="logo"
-                          height="200"
-                          width="100"
+                          height="300"
+                          width="250"
                       /></a>
                       <!-- end logo -->
                     </div>
@@ -49,26 +49,6 @@
                         <a href="/login">Login</a>
                       </li>
                       <li v-if="!isLoggedIn()"><a href="/signup">Signup</a></li>
-                      <!-- <li>
-                        <a href="javascript:void(0)">User Panel</a>
-                        <ul>
-                          <li><a href="admin/index.html">Dashboard</a></li>
-                          <li><a href="admin/message.html">Message</a></li>
-                          <li><a href="admin/booking.html">Booking</a></li>
-                          <li><a href="admin/wallet.html">Wallet</a></li>
-                          <li>
-                            <a href="admin/my-listing.html">My Listing</a>
-                          </li>
-                          <li><a href="admin/reviews.html">Reviews</a></li>
-                          <li><a href="admin/bookmark.html">Bookmarks</a></li>
-                          <li>
-                            <a href="admin/add-listing.html">Add Listing</a>
-                          </li>
-                          <li>
-                            <a href="admin/my-profile.html">My Profile</a>
-                          </li>
-                        </ul>
-                      </li> -->
                     </ul>
                     <!-- end menu area -->
 
@@ -85,6 +65,7 @@
                           <a
                             href="/new"
                             class="butn listi md-padding-15px-lr sm-no-padding"
+                            v-if="isLoggedIn()"
                           >
                             <i
                               class="
@@ -112,7 +93,7 @@
         </div>
       </header>
       <!-- end header section -->
-      <div id="nav">
+      <!-- <div id="nav">
         <router-link to="/">Home</router-link> |
         <span v-if="isLoggedIn()">
           <router-link to="/new">New Media</router-link> |
@@ -123,7 +104,7 @@
           <router-link to="/login">Login</router-link> |
           <router-link to="/signup">Signup</router-link>
         </span>
-      </div>
+      </div> -->
       <div class="main-wrapper">
         <router-view />
       </div>
