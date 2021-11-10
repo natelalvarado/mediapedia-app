@@ -213,8 +213,7 @@
               <div
                 class="card card-list border-0"
                 v-for="medium in orderBy(
-                  filterBy(media, filter, 'category', 'status'),
-                  sortAttribute
+                  filterBy(media, filter, 'category', 'status')
                 )"
                 v-bind:key="medium.id"
               >
@@ -241,9 +240,12 @@
                             >{{ medium.title }}
                           </router-link>
                         </h5>
+
                         <ul class="no-margin-bottom">
                           <li>
-                            <span> {{ medium.status }}</span>
+                            <span :class="medium.status.replace(/\s/g, '')">{{
+                              medium.status
+                            }}</span>
                           </li>
                         </ul>
                       </div>

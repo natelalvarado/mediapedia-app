@@ -61,6 +61,9 @@
                 >
                   <span>Update Account</span>
                 </button>
+                <button type="submit" class="butn" v-on:click="destroyUser()">
+                  Delete Account
+                </button>
               </div>
             </div>
           </div>

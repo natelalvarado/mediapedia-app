@@ -1,5 +1,5 @@
 <template>
-  <div class="main-wrapper">
+  <div class="main-wrapper padding-100px-tb">
     <div class="signup">
       <div class="row">
         <div class="col-lg-6 center-col">
