@@ -1,7 +1,7 @@
 <template>
   <div class="show-user main-wrapper">
     <!-- start contact form -->
-    <section class="bg-light-gray contact-form">
+    <section>
       <div class="container margin-30px-top no-margin-right">
         <div class="row">
           <div class="col-md-9 form-list center-col">

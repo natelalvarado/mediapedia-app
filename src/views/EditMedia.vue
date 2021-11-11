@@ -110,6 +110,17 @@
                     />
                   </div>
                 </div>
+                <div class="row">
+                  <h6>Image</h6>
+                  <input
+                    type="text"
+                    class="form-control margin-10px-bottom padding-10px-tb"
+                    name="exampleInputName"
+                    id="exampleInputName"
+                    placeholder="Your Name"
+                    v-model="editMediaParams.image"
+                  />
+                </div>
                 <div class="row" v-if="filterPlot(editMediaParams)">
                   <h6>Plot</h6>
                   <textarea

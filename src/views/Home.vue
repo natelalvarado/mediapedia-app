@@ -1,7 +1,7 @@
 <template>
   <div class="home main-wrapper">
     <section>
-      <div class="container">
+      <div class="container" v-if="isLoggedIn()">
         <div class="margin-60px-bottom">
           <span class="margin-20px-right font-size18">Filter By</span>
           <div
@@ -370,6 +370,9 @@ export default {
     },
     setFilter: function (filter) {
       this.filter = filter;
+    },
+    isLoggedIn: function () {
+      return localStorage.jwt;
     },
   },
 };

@@ -15,21 +15,40 @@
                   <nav class="navbar navbar-expand-lg navbar-light no-padding">
                     <div class="navbar-header navbar-header-custom">
                       <!-- start logo -->
-                      <a
-                        href="/"
-                        class="
-                          navbar-brand
-                          width-200px
-                          sm-width-180px
-                          xs-width-150px
-                        "
-                        ><img
-                          id="logo"
-                          src="img/logos/mediapedialogo.png"
-                          alt="logo"
-                          height="300"
-                          width="250"
-                      /></a>
+                      <div v-if="isLoggedIn()">
+                        <a
+                          href="/"
+                          class="
+                            navbar-brand
+                            width-200px
+                            sm-width-180px
+                            xs-width-150px
+                          "
+                          ><img
+                            id="logo"
+                            src="img/logos/mediapedialogo.png"
+                            alt="logo"
+                            height="300"
+                            width="250"
+                        /></a>
+                      </div>
+                      <div v-if="!isLoggedIn()">
+                        <a
+                          href="/login"
+                          class="
+                            navbar-brand
+                            width-200px
+                            sm-width-180px
+                            xs-width-150px
+                          "
+                          ><img
+                            id="logo"
+                            src="img/logos/mediapedialogo.png"
+                            alt="logo"
+                            height="300"
+                            width="250"
+                        /></a>
+                      </div>
                       <!-- end logo -->
                     </div>
 
