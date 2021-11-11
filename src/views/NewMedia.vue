@@ -41,7 +41,7 @@
                   class="form-control no-margin-bottom padding-10px-tb"
                   name="exampleInputName"
                   id="exampleInputName"
-                  placeholder="Title"
+                  placeholder="Enter Title"
                   v-model="newMediaParams.title"
                 />
               </div>
@@ -54,7 +54,7 @@
                   class="form-control no-margin-bottom padding-10px-tb"
                   name="exampleInputName"
                   id="exampleInputName"
-                  placeholder="Title"
+                  placeholder="Enter Creator"
                   v-model="newMediaParams.creator"
                 />
               </div>
@@ -67,20 +67,20 @@
                   class="form-control no-margin-bottom padding-10px-tb"
                   name="exampleInputName"
                   id="exampleInputName"
-                  placeholder="Your Name"
+                  placeholder="Enter Genre"
                   v-model="newMediaParams.genre"
                 />
               </div>
               <div
                 class="col-md-6 form-list center-col container margin-30px-top"
               >
-                <h6>Release Year</h6>
+                <h6>Release Date</h6>
                 <input
                   type="text"
                   class="form-control no-margin-bottom padding-10px-tb"
                   name="exampleInputName"
                   id="exampleInputName"
-                  placeholder="Your Name"
+                  placeholder="Enter Release Date"
                   v-model="newMediaParams.year"
                 />
               </div>
@@ -121,7 +121,7 @@
                   class="form-control no-margin-bottom padding-10px-tb"
                   name="exampleInputName"
                   id="exampleInputName"
-                  placeholder="Your Name"
+                  placeholder="Enter an Image URL"
                   v-model="newMediaParams.image"
                 />
               </div>
@@ -153,7 +153,7 @@
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="5"
-                  placeholder="Message"
+                  placeholder="Enter Review"
                   v-model="newMediaParams.review"
                 ></textarea>
               </div>
