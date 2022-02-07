@@ -107,7 +107,7 @@
                   class="form-control no-margin-bottom padding-10px-tb"
                   name="exampleInputName"
                   id="exampleInputName"
-                  placeholder="Your Name"
+                  placeholder="Enter Cast"
                   v-if="filterCast(newMediaParams)"
                   v-model="newMediaParams.cast"
                 />
@@ -121,7 +121,7 @@
                   class="form-control no-margin-bottom padding-10px-tb"
                   name="exampleInputName"
                   id="exampleInputName"
-                  placeholder="Enter an Image URL"
+                  placeholder="Enter Image URL"
                   v-model="newMediaParams.image"
                 />
               </div>
